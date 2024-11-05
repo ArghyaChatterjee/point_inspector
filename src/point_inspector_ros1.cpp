@@ -2,12 +2,12 @@
 #include <sensor_msgs/PointCloud2.h>
 
 #define ROS1
-#include <points_inspector.hpp>
+#include <point_inspector.hpp>
 
-class PointsInspectorNode {
+class PointInspectorNode {
 public:
-  PointsInspectorNode() : nh("~") {
-    ROS_INFO_STREAM("points_inspector");
+  PointInspectorNode() : nh("~") {
+    ROS_INFO_STREAM("point_inspector");
     points_sub = nh.subscribe("/points", 10, &PointsInspectorNode::callback, this);
     ROS_INFO_STREAM("subscribing to " << points_sub.getTopic());
   }
@@ -21,8 +21,8 @@ private:
 };
 
 int main(int argc, char** argv) {
-  ros::init(argc, argv, "points_inspector");
-  PointsInspectorNode node;
+  ros::init(argc, argv, "point_inspector");
+  PointInspectorNode node;
   ros::spin();
   return 0;
 }

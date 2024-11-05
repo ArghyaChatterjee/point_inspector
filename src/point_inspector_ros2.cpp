@@ -2,12 +2,12 @@
 #include <rclcpp/rclcpp.hpp>
 
 #define ROS2
-#include <points_inspector.hpp>
+#include <point_inspector.hpp>
 
-class PointsInspectorNode : public rclcpp::Node {
+class PointInspectorNode : public rclcpp::Node {
 public:
-  PointsInspectorNode(rclcpp::NodeOptions& options) : rclcpp::Node("points_inspector", options) {
-    RCLCPP_INFO_STREAM(this->get_logger(), "points_inspector");
+  PointInspectorNode(rclcpp::NodeOptions& options) : rclcpp::Node("point_inspector", options) {
+    RCLCPP_INFO_STREAM(this->get_logger(), "point_inspector");
 
     using std::placeholders::_1;
     points_sub = this->create_subscription<sensor_msgs::msg::PointCloud2>("points", rclcpp::SensorDataQoS(), [](const sensor_msgs::msg::PointCloud2::SharedPtr points_msg) {
@@ -24,7 +24,7 @@ private:
 int main(int argc, char** argv) {
   rclcpp::init(argc, argv);
   rclcpp::NodeOptions options;
-  rclcpp::spin(std::make_shared<PointsInspectorNode>(options));
+  rclcpp::spin(std::make_shared<PointInspectorNode>(options));
 
   return 0;
 }

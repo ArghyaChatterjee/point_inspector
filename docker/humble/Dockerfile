@@ -6,7 +6,7 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-COPY . /root/ros2_ws/src/points_inspector
+COPY . /root/ros2_ws/src/point_inspector
 
 WORKDIR /root/ros2_ws
 

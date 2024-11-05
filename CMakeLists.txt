@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(points_inspector)
+project(point_inspector)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -13,14 +13,14 @@ if($ENV{ROS_VERSION} EQUAL 1)
   find_package(catkin REQUIRED COMPONENTS roscpp sensor_msgs)
   catkin_package()
 
-  add_executable(points_inspector_node
-    src/points_inspector_ros1.cpp
+  add_executable(point_inspector_node
+    src/point_inspector_ros1.cpp
   )
-  target_include_directories(points_inspector_node PUBLIC
+  target_include_directories(point_inspector_node PUBLIC
     include
     ${catkin_INCLUDE_DIRS}
   )
-  target_link_libraries(points_inspector_node
+  target_link_libraries(point_inspector_node
     ${catkin_LIBRARIES}
   )
 else()
@@ -28,8 +28,8 @@ else()
   find_package(ament_cmake_auto REQUIRED)
   ament_auto_find_build_dependencies()
 
-  ament_auto_add_executable(points_inspector_node
-    src/points_inspector_ros2.cpp
+  ament_auto_add_executable(point_inspector_node
+    src/point_inspector_ros2.cpp
   )
 
   ament_auto_package()

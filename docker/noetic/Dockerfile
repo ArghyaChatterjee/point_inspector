@@ -6,7 +6,7 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-COPY . /root/catkin_ws/src/points_inspector
+COPY . /root/catkin_ws/src/point_inspector
 
 WORKDIR /root/catkin_ws
 

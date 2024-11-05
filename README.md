@@ -25,7 +25,8 @@ pip3 install -r requirements.txt
 sudo apt install ros-humble-vision-opencv ros-humble-cv-bridge ros-humble-sensor-msgs-py ros-humble-pcl-ros pcl-tools python3-pcl
 ```
 
-# ZED Point Cloud Inpection (Point Cloud With Texture Inspection in .bin Format):
+# ZED Point Cloud Inpection 
+## Point Cloud With Texture Inspection in .bin Format:
 
 A `.bin` file **can** encode RGB values, similar to `.ply` files, but it depends entirely on the format specification used when generating the `.bin` file. Unlike the `.ply` format, which has a well-defined ASCII or binary structure for encoding vertices and color information, `.bin` files are raw binary data without a universal standard for point cloud data. This means:
 
@@ -74,7 +75,8 @@ Output is something like this:
   <img src="media/rviz.png" width="800">
 </div>
 
-# ZED Point Cloud Inpection (Point Cloud With Texture Inspection in .ply Format):
+# ZED Point Cloud Inpection 
+## Point Cloud With Texture Inspection in .ply Format:
 
 A `.bin` file **can** encode RGB values, similar to `.ply` files, but it depends entirely on the format specification used when generating the `.bin` file. Unlike the `.ply` format, which has a well-defined ASCII or binary structure for encoding vertices and color information, `.bin` files are raw binary data without a universal standard for point cloud data. This means:
 
@@ -124,13 +126,14 @@ Output is something like this:
 </div>
 
 
-# Lidar Point Cloud Inpection (Point Cloud Without Texture Inspection in ROS2 format):
+# Lidar Point Cloud Inpection 
+## Point Cloud Without Texture Inspection in ROS2 format:
 ```bash
 # ROS1
-rosrun points_inspector points_inspector_node points:=/os1_cloud_node1/points
+rosrun point_inspector point_inspector_node points:=/os1_cloud_node1/points
 
 # ROS2
-ros2 run points_inspector points_inspector_node -r points:=/os1_cloud_node1/points
+ros2 run point_inspector point_inspector_node -r points:=/os1_cloud_node1/points
 ```
 
 Output example:
@@ -152,15 +155,15 @@ range          : datatype=UINT32 mean=6368.6 first=0 last=0 median=0 min=0 max=1
 
 ## Docker images
 
-- [arghya/points_inspector:noetic ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/arghya/points_inspector/noetic)](https://hub.docker.com/repository/docker/arghya/points_inspector)
-- [arghya/points_inspector:humble ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/arghya/points_inspector/humble)](https://hub.docker.com/repository/docker/arghya/points_inspector)
+- [arghya/point_inspector:noetic ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/arghya/point_inspector/noetic)](https://hub.docker.com/repository/docker/arghya/points_inspector)
+- [arghya/point_inspector:humble ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/arghya/point_inspector/humble)](https://hub.docker.com/repository/docker/arghya/point_inspector)
 
 ```bash
 # ROS1 noetic
-docker run --rm --net host arghya/points_inspector:noetic rosrun points_inspector points_inspector_node points:=/os1_cloud_node1/points
+docker run --rm --net host arghya/point_inspector:noetic rosrun point_inspector point_inspector_node points:=/os1_cloud_node1/points
 ```
 
 ```bash
 # ROS2 humble (You may need some DDS configuration for ROS2 communication over docker)
-docker run --rm arghya/points_inspector:humble ros2 run points_inspector points_inspector_node -r points:=/os1_cloud_node1/points
+docker run --rm arghya/point_inspector:humble ros2 run point_inspector point_inspector_node -r points:=/os1_cloud_node1/points
 ```
