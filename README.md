@@ -1,5 +1,5 @@
 # Point Cloud Inspector
-A point cloud inspection tool w/o texture in .bin and .ply (KITTI format), sensor_msgs / PointCloud2 messages (ROS1/ROS2 format).
+A point cloud inspection tool w/o texture in .bin or .pcd and .ply (KITTI format), sensor_msgs / PointCloud2 messages (ROS1/ROS2 format).
 
 # Setup
 ## System Requirements
@@ -26,7 +26,7 @@ sudo apt install ros-humble-vision-opencv ros-humble-cv-bridge ros-humble-sensor
 ```
 
 # ZED Point Cloud Inpection 
-## Point Cloud With Texture Inspection in .bin Format:
+## Point Cloud With Texture Inspection in KITTI (.bin or .pcd) Format:
 
 A `.bin` file **can** encode RGB values, similar to `.ply` files, but it depends entirely on the format specification used when generating the `.bin` file. Unlike the `.ply` format, which has a well-defined ASCII or binary structure for encoding vertices and color information, `.bin` files are raw binary data without a universal standard for point cloud data. This means:
 
@@ -173,8 +173,8 @@ docker run --rm arghya/point_inspector:humble ros2 run point_inspector point_ins
 </div>
 
 # Lidar Point Cloud Inpection 
-## Point Cloud Without Texture Inspection in KITTI (.bin) format:
-KITTI lidar files (.bin) are 10 times reduced in terms of no. of point clouds as well as size (MB) as compared to zed (or any rgbd sensor) generated point clouds. 
+## Point Cloud Without Texture Inspection in KITTI (.bin or .pcd) format:
+KITTI lidar files (.bin or .pcd) are 10 times reduced in terms of no. of point clouds as well as size (MB) as compared to zed (or any rgbd sensor) generated point clouds. 
 ```bash
 # ROS1
 rosrun point_inspector point_inspector_node points:=/os1_cloud_node1/points
