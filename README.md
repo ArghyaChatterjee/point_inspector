@@ -16,8 +16,9 @@ cd point_inspector/
 # To access python3-pcl functionalities from system installation
 python3 -m venv --system-site-packages point_inspector_venv
 source point_inspector_venv/bin/activate
-pip3 install --upgrade pip
 source /opt/ros/humble/setup.bash 
+## ignore these steps if your system already have them
+pip3 install --upgrade pip
 pip3 install -r requirements.txt
 ```
 ## Install libraries from apt
@@ -38,7 +39,7 @@ A `.bin` file **can** encode RGB values, similar to `.ply` files, but it depends
   - `(x, y, z, r, g, b)`: Here, `r`, `g`, and `b` are usually stored as integers or floats, making a total of 24 bytes per point (for 4-byte floats).
   - `(x, y, z, rgba)`: The RGB values could be packed into a single float (`rgba`), with each color channel taking 8 bits (as in 32-bit color encoding).
 
-### How to Check RGB in a `.bin` File
+### Check RGB in a `.bin` File
 To confirm if a `.bin` file includes RGB:
 1. **Look at the File Size**: Calculate the expected file size per point. For instance:
    - `(x, y, z, intensity)`: 16 bytes per point (4 x 4-byte floats)
@@ -47,6 +48,12 @@ To confirm if a `.bin` file includes RGB:
 
 2. **Read and Interpret Data in Chunks**: Start by reading a few sample points with various structures to see if they yield realistic values.
 
+### Check No. of Point Clouds
+```bash
+cd scripts
+python3 count_one_point_no_from_bin_files.py
+```
+### Inspect Point Clouds
 ```bash
 cd scripts
 python3 inspect_point_cloud.py
@@ -72,7 +79,7 @@ Output is something like this:
 ```
 
 <div align="center">
-  <img src="media/rviz.png" width="800">
+  <img src="media/zed_mini_ros2_bag.gif" width="800">
 </div>
 
 # ZED Point Cloud Inpection 
@@ -122,8 +129,16 @@ Output is something like this:
 ```
 
 <div align="center">
-  <img src="media/rviz.png" width="800">
+  <img src="media/zed_mini_ros2_bag.gif" width="800">
 </div>
+
+# ZED Point Cloud Inpection 
+## Point Cloud With Texture Inspection in ROS2 Format:
+### Check No. of Point Clouds
+```bash
+cd scripts
+python3 count_one_point_no_from_ros2_topic.py
+```
 
 
 # Lidar Point Cloud Inpection 
