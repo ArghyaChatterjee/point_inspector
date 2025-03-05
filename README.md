@@ -133,6 +133,10 @@ Output is something like this:
 </div>
 
 # ZED Point Cloud Inpection 
+
+## What's the difference between a camera frame and an optical frame ?
+In ROS, the traditional frame convention is x forward, y left and z up. For depth images and pointclouds, z needs to be in the forward frame and the traditional ros convention doesn't support. So, you will see there is a new frame called optical frame that has been introduced and optical frames (left and right) are rotated than normal camera frame in ROS so that they become z forward, x right and y down.
+
 ## Point Cloud With Texture Inspection in ROS2 Format:
 ### Check No. of Point Clouds
 ```bash
